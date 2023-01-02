@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title%}Memes{% endblock %}
+    
+{% block style %}
+    <style>*{
+
+        font-family:Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+    
+    }
+    body{
+        
+        background-color: #141414;
+    }
+    h1{
+        margin: 1rem;
+        color: white;
+        font-size: 3vw;
+        text-align: center;
+        border: 5px solid whitesmoke;
+        padding: 3rem;
+        border-style:dotted;
+    }
+    
+    span{
+        color: #FF597B;
+    }
+    
+    img{
+        width: 100%;
+        margin: 2rem;
+        background-color: red;
+
+    }
+    div{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        
+    }
+    @media only screen and (max-width: 500px){
+        img{
+        position: absolute;
+        transform: translate(-50%);
+        left: 50%;
+        width: 50%;
+        margin: 0rem;
+    }
+
+    h1{
+        font-size: 6vw;
+    }
+    }
+    </style>
+
+{% endblock %}
+{% block content %}
+
+    <h1>Random meme from <span>r/{{subreddit}}</span></h1>
+    <div><img src="{{meme_pic}}" alt="ERROR"></div>
+
+    {% endblock %}

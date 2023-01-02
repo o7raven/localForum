@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block style %}
+<style>
+
+body{
+    background: linear-gradient(to right, #0A2647, #144272);
+    color: white;
+}
+
+form{
+    margin: 6rem;
+    text-align: center;
+}
+
+.form-control{
+    text-align: center;
+}
+</style>
+
+{%endblock%}
+
+{% block content %}
+
+<form method="post">
+    <div class="mb-3">
+      <label for="exampleInputUsername" class="form-label">Uživatelské jméno</label>
+      <input type="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp" name="usrnm">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{%endblock%}
