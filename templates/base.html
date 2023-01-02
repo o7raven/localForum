@@ -10,6 +10,18 @@
     
     {% block style %}
     {% endblock %}
+    
+    <style>
+      .navbar-text{
+        padding-right: 3rem;
+        color: gray;
+      }
+      .navbar-text:hover{
+        padding-right: 3rem;
+        color: white;
+        
+      }
+    </style>
 
 </head>
 <body>
@@ -28,14 +40,19 @@
                 <a class="nav-link " href="meme">Meme</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#">Pricing</a>
+                <a class="nav-link " href="user">Forum</a>
               </li>
             </ul>
             <span class="navbar-text">
                 <a class="nav-link" href="login-page">
                     Přihlásit se
                 </a>
-            </span>
+            </span>            
+            <span class="navbar-text">
+              <a class="nav-link" href="logout">
+                  Odhlásit se
+              </a>
+          </span>
           </div>
         </div>
       </nav>
