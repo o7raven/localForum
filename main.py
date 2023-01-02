@@ -53,18 +53,19 @@ def login():
         session.permanent = True
         user = request.form["usrnm"]
         session["user"] = user
-
         found_user = users.query.filter_by(name=user).first()
         if found_user:
             session["email"] = found_user.email
+            flash("Přihlášen!")
+            return redirect(url_for("user"))
         else:
-            usr = users(user, "")
-            db.session.add(usr)
-            db.session.commit()
+            flash("Účet neexistuje")
+            return render_template("login.html")
+            #usr = users(user, "")
+            #db.session.add(usr)
+            #db.session.commit()
 
 
-        flash("Přihlášen!")
-        return redirect(url_for("user"))
     else:
         if "user" in session:
             return redirect(url_for("user"))
