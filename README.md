@@ -9,7 +9,7 @@ Local website for sharing files across the LAN
 - [@o7raven](https://github.com/o7raven) - Github
 
 
-![Logo]()
+![Logo](https://github.com/o7raven/localForum/blob/main/resources_readme/linkedin_banner_image_2.png)
 
 
 ## Features
