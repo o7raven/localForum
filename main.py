@@ -52,9 +52,9 @@ def login():
     if request.method == "POST":
         session.permanent = True
         user = request.form["usrnm"]
-        session["user"] = user
         found_user = users.query.filter_by(name=user).first()
         if found_user:
+            session["user"] = user
             session["email"] = found_user.email
             flash("Přihlášen!")
             return redirect(url_for("user"))
