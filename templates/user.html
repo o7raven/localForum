@@ -1,9 +1,86 @@
 {% extends "base.html" %}
+{% block title%}Forum{% endblock %}
 
 
+
+{%block style%}
+<style>
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    body{
+        
+        color: White;
+        text-align: center;
+        width: 100%;
+    }
+    form{
+        margin-top: 5%;
+        display: grid;
+        font-size: 3vw;
+        grid-template-columns: 1fr;
+    }
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        align-items: center;
+
+    }
+
+    h1:hover{
+        color: whitesmoke;
+        transform: scale(1.05);
+        transition: 0.1s ease;
+    }
+    h1{
+        background-color: #EB455F;
+        padding: 1rem;
+
+        border: 3px white;
+        border-style: groove;
+    }
+
+    .wrapper_content{
+        margin: 2rem;
+        border: 2px white solid;
+        height: 40vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .main__wrapper{
+        border: 3px white dashed;
+        margin: 1rem;
+    }
+
+
+    .uploaded_files_container{
+        display: grid;
+        margin: 2rem;
+        border: 2px white solid;
+        height: 500vh;
+
+    }
+
+    .uploaded_files{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        justify-items: left;
+        margin: 2rem;
+    }
+
+</style>
+
+{%endblock%}
 
 {% block content %}
-{% block title%}Forum{% endblock %}
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
@@ -13,9 +90,46 @@
 {% endif %}
 {% endwith %}
 
-<form action="#" method="POST">
-    <input type="email" name="email" placeholder="Email zde" value="{{email if email}}"/>
-    <input type="submit" value="Odeslat"/>
-</form>
 
+<div class="main__wrapper">
+    <div class="wrapper_content">
+        <div class="container">
+
+
+            <div class="users">
+                <h1><a href="users">Zobrazit uživatele</a></h1>
+            </div>
+
+            <form action="#" method="POST">
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Tvůj email</label>
+                    <input type="email" name="email" class="form-control" value="{{email if email}}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email zde" >
+                </div>
+                <button type="submit" class="btn btn-danger" value="Odeslat">Submit</button>
+            </form>
+
+            <div class="Upload">
+                <h1><a href="#">Nahrát soubor</a></h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="uploaded_files_container">
+        <div class="uploaded_files">
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+        </div>
+    </div>
+
+</div>
 {% endblock %}
