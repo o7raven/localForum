@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% block title%}Login{% endblock %}
 
 {% block style %}
 <style>
@@ -28,8 +29,14 @@ form{
       <label for="exampleInputUsername" class="form-label">Uživatelské jméno</label>
       <input type="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp" name="usrnm">
     </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages%}
+          <p>{{msg}}</p>
+        {% endfor%}
+      {% endif %}
+    {% endwith %}
+    <button type="submit" class="btn btn-primary">Přihlásit</button>
   </form>
 
 {%endblock%}
