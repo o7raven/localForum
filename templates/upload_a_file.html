@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title%}Nahraj soubor{% endblock %}
+
+{%block style%}
+
+
+<style>
+
+    .form{
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        height: 50vh;
+    }
+
+    .form-label{
+        color: white;
+        font-size: 1.5vw;
+    }
+    .upload-form-btn{
+        margin-top: 2rem;
+    }
+</style>
+
+
+{%endblock%}
+
+{%block content%}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  {% for msg in messages%}
+    <p>{{msg}}</p>
+  {% endfor%}
+{% endif %}
+{% endwith %}
+
+<form action="" method="POST" enctype="multipart/form-data"> 
+<div class="form">
+    <label for="formFileLg" class="form-label">Nahraj soubor</label>
+    <input class="form-control form-control-lg" type="file" value="file" name="file">
+    <button type="submit" class="btn btn-outline-primary upload-form-btn" value="upload">Nahrát</button>
+
+  </div>
+</form>
+{%endblock%}

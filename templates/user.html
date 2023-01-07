@@ -69,7 +69,7 @@
         display: grid;
         margin: 2rem;
         border: 2px white solid;
-        height: 500vh;
+        height: auto;
 
     }
 
@@ -78,6 +78,26 @@
         grid-template-columns: repeat(1,1fr);
         justify-items: left;
         margin: 2rem;
+    }
+
+        
+    .paragraph_header{
+        font-size: 1.2vw;
+    }
+
+    .paragraph_items{
+        font-size: 1.3vw;
+        color: #4585eb;
+    }
+
+    .download_btn{
+        font-size: 1.4vw;
+        margin-left: 1rem;
+        color: #45eb58;
+    }
+
+    .download_btn:hover{
+        color: #c2eb45;
     }
 
 
@@ -132,11 +152,12 @@
                     <label for="exampleInputEmail1" class="form-label">Tvůj email</label>
                     <input type="email" name="email" class="form-control" value="{{email if email}}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email zde" >
                 </div>
-                <button type="submit" class="btn btn-danger" value="Odeslat">Submit</button>
+                <a><button type="submit" class="btn btn-danger" value="Odeslat">Submit</button></a>
             </form>
 
             <div class="Upload">
-                <h1><a href="#">Nahrát soubor</a></h1>
+                <h1><a href="upload">Nahrát soubor</a></h1>
+                
             </div>
         </div>
     </div>
@@ -144,16 +165,10 @@
 
     <div class="uploaded_files_container">
         <div class="uploaded_files">
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
-            <span>1.2.2023 | yakubsiq@gmail.com nahrál dokument.wxfd | <button>Stáhnout</button></span>
+            {% for item in values%}
+            <p><span class="paragraph_header">Nahrál:</span> <span class="paragraph_items">{{item.uploader}}</span><span class="paragraph_header"> > </span><span class="paragraph_items">{{item.uploader_email}}</span> | <span class="paragraph_header">Název:</span> <span class="paragraph_items">{{item.filename}} </span>| <span class="download_btn"><a href="/download/{{item.filename}}">Stáhnout</a></span></p>
+
+            {%endfor%}
         </div>
     </div>
 
